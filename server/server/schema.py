@@ -1,7 +1,9 @@
 import graphene
+import building.schema
 
 
-class Query(graphene.ObjectType):
+class Query(building.schema.Query,
+            graphene.ObjectType):
     test = graphene.String()
 
     def resolve_test(self, *args, **kwargs):
