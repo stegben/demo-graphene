@@ -8,9 +8,14 @@ from .models import Room
 
 class HouseNode(DjangoObjectType):
 
+    half_price = graphene.Float()
+
     class Meta:
         model = House
         interfaces = (graphene.relay.Node,)
+
+    def resolve_half_price(self, *args, **kwargs):
+        return self.price / 2
 
 
 class RoomNode(DjangoObjectType):
