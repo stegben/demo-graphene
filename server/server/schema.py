@@ -10,7 +10,8 @@ class Query(building.schema.Query,
         return 'Hello World!'
 
 
-class Mutation(graphene.ObjectType):
+class Mutation(building.schema.Mutation,
+               graphene.ObjectType):
     test = graphene.String()
 
     def resolve_test(self, *args, **kwargs):
